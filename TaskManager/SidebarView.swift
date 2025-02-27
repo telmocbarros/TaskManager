@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SidebarView: View {
     @Binding var userCreatedGroups: [TaskGroup]
-    @Binding var selection: TaskSection
+    @Binding var selection: TaskSection?
     
     var body: some View {
         List(selection: $selection) {
@@ -28,8 +28,6 @@ struct SidebarView: View {
                         Image(systemName: "folder")
                         TextField("New Group", text: $group.title)
                     }
-                    Label(group.title, systemImage: "folder")
-                        .tag(TaskSection.list(group))
                 }
             }
         }
@@ -44,6 +42,7 @@ struct SidebarView: View {
             .foregroundColor(.accentColor)
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
+            .keyboardShortcut(KeyEquivalent("a"), modifiers:.command)
         }
     }
 }
