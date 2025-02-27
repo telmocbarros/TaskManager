@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var userCreatedGroups: [TaskGroup] = TaskGroup.examples()
     var body: some View {
         NavigationSplitView {
-            SidebarView(userCreatedGroups: userCreatedGroups, selection: $selection)
+            SidebarView(userCreatedGroups: $userCreatedGroups, selection: $selection)
         } detail: {
             switch selection {
             case .all:
