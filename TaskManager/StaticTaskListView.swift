@@ -1,5 +1,5 @@
 //
-//  TaskListView.swift
+//  StaticTaskListView.swift
 //  TaskManager
 //
 //  Created by Telmo Barros on 25/02/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskListView: View {
+struct StaticTaskListView: View {
     let title: String
     let tasks: [Task]
     var body: some View {
@@ -17,13 +17,10 @@ struct TaskListView: View {
                       ? "largecircle.fill.circle" : "circle")
                 Text(task.title)
             }
-
         }
-        
-        Text("Task List View")
     }
 }
 
 #Preview {
-    TaskListView(title: "All", tasks: Task.examples())
+    StaticTaskListView(title: "All", tasks: Task.examples())
 }

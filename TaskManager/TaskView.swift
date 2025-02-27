@@ -12,11 +12,17 @@ struct TaskView: View {
     
     var body: some View {
         HStack{
-            
+            Image(systemName: task.isCompleted
+                  ? "largecircle.fill.circle" : "circle")
+            .onTapGesture {
+                task.isCompleted.toggle()
+            }
+            TextField("New Task", text: $task.title)
+                .textFieldStyle(.plain)
         }
     }
 }
 
 #Preview {
-    TaskView(task:.constant(Task.example()))
+    TaskView(task:.constant(Task.example())).padding()
 }
